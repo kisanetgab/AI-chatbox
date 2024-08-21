@@ -1,0 +1,94 @@
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    background-image: url('/background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+
+/* Container for the landing page content */
+.container {
+    max-width: 800px;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.7); /* Stronger dark overlay */
+    border-radius: 12px;
+    text-align: center; /* Center the text inside the container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+
+
+/* Heading styles */
+h1 {
+    font-size: 56px;
+    font-weight: bold;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); /* Stronger text shadow */
+    margin-bottom: 20px;
+}
+
+
+
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Paragraph text styles */
+p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 500; /* Medium font weight for better readability */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow */
+}
+
+
+/* Button styles */
+
+button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Button text shadow */
+
+
+    /* Button text shadow */
+}
+
+
+
+.btn-start-chat:active {
+    background-color: #1e90d6;
+}
+
+.btn-start-chat:hover {
+    background-color: #0056b3;
+}
+
