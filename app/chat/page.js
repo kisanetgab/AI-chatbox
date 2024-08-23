@@ -2,6 +2,7 @@
 
 import { Box, Button, Stack, TextField } from '@mui/material';
 import { useState, useRef, useEffect } from 'react';
+import './Chat.css';
 
 
 
@@ -72,14 +73,15 @@ export default function ChatPage() {
     scrollToBottom();
   }, [messages]);
 
+
   return (
-    <div class="chatbox-container"> 
+    <div className="chatbox-container">  {/* Wrapper div for styling */}
       <div className="chatbox-header"> {/* Header for the chatbox */}
         Pulse AI Chat
       </div>
       <Box
-        width="100vw"
-        height="100vh"
+        width="100%"
+        height="100%"
         display="flex"
         flexDirection="column"
         justifyContent="center"
@@ -87,54 +89,47 @@ export default function ChatPage() {
       >
         <Stack
           direction={'column'}
-          width="500px"
-          height="700px"
-          border="1px solid black"
+          width="100%"
+          height="100%"
           p={2}
           spacing={3}
+          className="message-box"  
         >
-          <Stack
-            direction={'column'}
-            spacing={2}
-            flexGrow={1}
-            overflow="auto"
-            maxHeight="100%"
-          >
-            {messages.map((message, index) => (
+          {messages.map((message, index) => (
+            <Box
+              key={index}
+              display="flex"
+              justifyContent={
+                message.role === 'assistant' ? 'flex-start' : 'flex-end'
+              }
+              className={`message ${message.role}`}  
+            >
               <Box
-                key={index}
-                display="flex"
-                justifyContent={
-                  message.role === 'assistant' ? 'flex-start' : 'flex-end'
+                bgcolor={
+                  message.role === 'assistant'
+                    ? 'primary.main'
+                    : 'secondary.main'
                 }
+                color="white"
+                borderRadius={16}
+                p={3}
               >
-                <Box
-                  bgcolor={
-                    message.role === 'assistant'
-                      ? 'primary.main'
-                      : 'secondary.main'
-                  }
-                  color="white"
-                  borderRadius={16}
-                  p={3}
-                >
-                  {message.content}
-                </Box>
+                {message.content}
               </Box>
-            ))}
-            <div ref={messagesEndRef} />
-          </Stack>
-          <Stack direction={'row'} spacing={2}>
-            <TextField
-              label="Message"
-              fullWidth
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-            <Button variant="contained" onClick={sendMessage}>
-              Send
-            </Button>
-          </Stack>
+            </Box>
+          ))}
+          <div ref={messagesEndRef} />
+        </Stack>
+        <Stack direction={'row'} spacing={2} className="send-message-container">
+          <TextField
+            label="Message"
+            fullWidth
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <Button variant="contained" onClick={sendMessage}>
+            Send
+          </Button>
         </Stack>
       </Box>
     </div>
