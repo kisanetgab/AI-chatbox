@@ -2,13 +2,15 @@
 
 import { Box, Button, Stack, TextField } from '@mui/material';
 import { useState, useRef, useEffect } from 'react';
-import './Chat.css';
+
+
 
 export default function ChatPage() {
+
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: "Hi! I'm Pulsesss AI. How can I help you today?",
+      content: "Hi! I'm Pulse AI. How can I help you today?",
     },
   ]);
   const [message, setMessage] = useState('');
@@ -71,13 +73,13 @@ export default function ChatPage() {
   }, [messages]);
 
   return (
-    <div className="chatbox-container">  
-      <div className="chatbox-header">
+    <div class="chatbox-container"> 
+      <div className="chatbox-header"> {/* Header for the chatbox */}
         Pulse AI Chat
       </div>
       <Box
-        width="100%"
-        height="100%"
+        width="100vw"
+        height="100vh"
         display="flex"
         flexDirection="column"
         justifyContent="center"
@@ -85,47 +87,54 @@ export default function ChatPage() {
       >
         <Stack
           direction={'column'}
-          width="100%"
-          height="100%"
+          width="500px"
+          height="700px"
+          border="1px solid black"
           p={2}
           spacing={3}
-          className="message-box"  
         >
-          {messages.map((message, index) => (
-            <Box
-              key={index}
-              display="flex"
-              justifyContent={
-                message.role === 'assistant' ? 'flex-start' : 'flex-end'
-              }
-              className={`message ${message.role}`}  
-            >
+          <Stack
+            direction={'column'}
+            spacing={2}
+            flexGrow={1}
+            overflow="auto"
+            maxHeight="100%"
+          >
+            {messages.map((message, index) => (
               <Box
-                bgcolor={
-                  message.role === 'assistant'
-                    ? 'primary.main'
-                    : 'secondary.main'
+                key={index}
+                display="flex"
+                justifyContent={
+                  message.role === 'assistant' ? 'flex-start' : 'flex-end'
                 }
-                color="white"
-                borderRadius={16}
-                p={3}
               >
-                {message.content}
+                <Box
+                  bgcolor={
+                    message.role === 'assistant'
+                      ? 'primary.main'
+                      : 'secondary.main'
+                  }
+                  color="white"
+                  borderRadius={16}
+                  p={3}
+                >
+                  {message.content}
+                </Box>
               </Box>
-            </Box>
-          ))}
-          <div ref={messagesEndRef} />
-        </Stack>
-        <Stack direction={'row'} spacing={2} className="send-message-container">
-          <TextField
-            label="Message"
-            fullWidth
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-          <Button variant="contained" onClick={sendMessage}>
-            Send
-          </Button>
+            ))}
+            <div ref={messagesEndRef} />
+          </Stack>
+          <Stack direction={'row'} spacing={2}>
+            <TextField
+              label="Message"
+              fullWidth
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+            <Button variant="contained" onClick={sendMessage}>
+              Send
+            </Button>
+          </Stack>
         </Stack>
       </Box>
     </div>
