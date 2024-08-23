@@ -8,7 +8,7 @@ export default function ChatPage() {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: "Hi! I'm Pulse AI. How can I help you today?",
+      content: "Hi! I'm Pulsesss AI. How can I help you today?",
     },
   ]);
   const [message, setMessage] = useState('');
