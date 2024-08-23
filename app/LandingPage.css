@@ -64,7 +64,6 @@ p {
 
 
 /* Button styles */
-
 button {
     margin-top: 20px;
     padding: 15px 30px;
@@ -76,13 +75,8 @@ button {
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s ease;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Button text shadow */
-
-
-    /* Button text shadow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
 }
-
-
 
 .btn-start-chat:active {
     background-color: #1e90d6;

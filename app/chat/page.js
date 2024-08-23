@@ -1,14 +1,10 @@
-
 'use client';
 
 import { Box, Button, Stack, TextField } from '@mui/material';
 import { useState, useRef, useEffect } from 'react';
 import './Chat.css';
 
-
-
 export default function ChatPage() {
-
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
@@ -74,10 +70,9 @@ export default function ChatPage() {
     scrollToBottom();
   }, [messages]);
 
-
   return (
-    <div className="chatbox-container">  {/* Wrapper div for styling */}
-      <div className="chatbox-header"> {/* Header for the chatbox */}
+    <div className="chatbox-container">  
+      <div className="chatbox-header">
         Pulse AI Chat
       </div>
       <Box
